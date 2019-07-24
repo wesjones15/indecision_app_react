@@ -38,7 +38,7 @@ class VisibilityToggle extends React.Component {
         this.setState((prevState) => {
             return {
                 visibility: !prevState.visibility
-            };            
+            };
         });
     }
     render() {
