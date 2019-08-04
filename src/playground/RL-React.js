@@ -1,7 +1,8 @@
 // use playerX and playerY to place player at that location
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-
-class DungeonGame extends React.Component {
+export default class DungeonGame extends React.Component {
     render() {
         return (
             <div>
@@ -38,6 +39,10 @@ class Interaction extends React.Component {
             roomY: 4
         }
     }
+    collisionCheck(player_pos, new_player_pos, wall_x, wall_y) {
+        // Returns false if player will collide
+        console.log(player_pos, new_player_pos, wall_x, wall_y);
+    }
     playerUp() {
         this.setState((previousState) => {
             return {
@@ -45,6 +50,7 @@ class Interaction extends React.Component {
             };
         });
         console.log("up");
+        console.log(generateRoom.roomArr);
     }
     playerDown() {
         console.log("down");
@@ -73,8 +79,7 @@ class Interaction extends React.Component {
     playerUse() {
         console.log("use");
     }
-
-    generateRoom() {
+    updateRoom() {
         const rW = this.state.roomX;
         const rH = this.state.roomY;
         let roomArr = [];
@@ -96,6 +101,9 @@ class Interaction extends React.Component {
         for (var i = 0; i < roomArr.length; i++) {
             console.log(roomArr[i]);
         }
+    }
+    generateRoom() {
+        
     }
 
     render() {
